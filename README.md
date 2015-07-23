@@ -1,20 +1,22 @@
 # ImageDis
 
-ImageDis is a piece of OWIN middleware that exposes an endpoint on your website which allows you to upload new images, and retrieve the original or resized variants of the image.
+ImageDis is middleware that exposes an endpoint on your website which allows you to upload new images, and retrieve the original or resized variants of that image.
 
 
 # Getting Started
 
 First you'll need to grab the latest packages from NuGet.
 
-* [ImageDis](https://www.nuget.org/packages/ImageDis/) - The ImageDis OWIN middleware.
+* [ImageDis](https://www.nuget.org/packages/ImageDis/) - The ImageDis Core library
+* [ImageDis.Owin](https://www.nuget.org/packages/ImageDis.Owin/) or [ImageDis.AspNet](https://www.nuget.org/packages/ImageDis.AspNet/) - Your choice of ImageDis middleware for Owin or the newer AspNet framework.
 * [ImageDis.S3](https://www.nuget.org/packages/ImageDis.S3/) - A storage provider based on AWS S3.
 * [ImageDis.ImageProcessor](https://www.nuget.org/packages/ImageDis.ImageProcessor/) - An image transform provider based on the ImageProcessor library.
 
-Once the packages have been added to your project, attach ImageDis to your OWIN pipeline like the below code snippets. In this example we're telling ImageDis what storage and image transform provider to use.
+Once the packages have been added to your project, attach ImageDis to your request pipeline like the below code snippets. In this example we're telling ImageDis what storage and image transform provider to use.
 
 ```
 using ImageDis;
+using ImageDis.AspNet;
 using ImageDis.S3;
 using ImageDis.ImageProcessor;
 ```
@@ -28,7 +30,7 @@ app.UseImageDis(new ImageDisOptions(
         bucketName, 
         "https://your-bucket.amazonaws.com/"
     ),
-    new ImageProcessorTransformImageProvider()
+    new ImageProcessorImageTransformProvider()
 ));
 ```
 
