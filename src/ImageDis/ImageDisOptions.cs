@@ -6,8 +6,8 @@ namespace ImageDis
     public class ImageDisOptions
     {
         public ImageDisOptions(
-            IStorageProvider storageProvider, 
-            ITransformImageProvider transformImageProvider, 
+            IStorageProvider storageProvider,
+            IImageTransformProvider imageTransformProvider, 
             string path = null,
             string[] allowedContentTypes = null,
             IKeyGenerator keyGenerator = null)
@@ -17,10 +17,10 @@ namespace ImageDis
 
             StorageProvider = storageProvider;
 
-            if (transformImageProvider == null)
-                throw new ArgumentNullException("transformImageProvider");
+            if (imageTransformProvider == null)
+                throw new ArgumentNullException("imageTransformProvider");
 
-            TransformImageProvider = transformImageProvider;
+            ImageTransformProvider = imageTransformProvider;
 
             Path = string.IsNullOrWhiteSpace(path) ? "/imagedis" : path;
 
@@ -37,7 +37,7 @@ namespace ImageDis
 
         public IKeyGenerator KeyGenerator { get; set; }
 
-        public ITransformImageProvider TransformImageProvider { get; set; }
+        public IImageTransformProvider ImageTransformProvider { get; set; }
 
         public IStorageProvider StorageProvider { get; set; }
     }

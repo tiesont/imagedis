@@ -1,0 +1,15 @@
+﻿{
+    "version": "0.1.1",
+    "description": "A simple image resizing server for ASP.NET.",
+    "authors": [ "Lupco Blazeski" ],
+    "tags": [ "image", "resizing", "server", "asp", "mvc" ],
+    "projectUrl": "https://github.com/lupcob/imagedis",
+    "licenseUrl": "https://github.com/lupcob/imagedis/blob/master/LICENCE.md",
+
+    "dependencies": {
+    },
+
+    "frameworks" : {
+        "dnx451": { }
+    }
+}

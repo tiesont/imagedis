@@ -1,7 +1,5 @@
-﻿using Microsoft.Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ImageDis
 {
@@ -9,21 +7,14 @@ namespace ImageDis
     {
         private readonly IDictionary<string, object> _dict;
 
-        public ImageDisParameters(IReadableStringCollection param)
+        public ImageDisParameters()
         {
             _dict = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-            foreach (var p in param)
-            {
-                int integer;
-                bool boolean;
-
-                if (int.TryParse(p.Value.First(), out integer))
-                    _dict.Add(p.Key, integer);
-                else if (bool.TryParse(p.Value.First(), out boolean))
-                    _dict.Add(p.Key, boolean);
-                else
-                    _dict.Add(p.Key, p.Value.First());
-            }
+        }
+        
+        public void Add<T>(string key, T value)
+        {
+            _dict.Add(key, value);
         }
 
         public bool Has(string key)

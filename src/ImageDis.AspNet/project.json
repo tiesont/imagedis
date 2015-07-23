@@ -1,0 +1,18 @@
+{
+  "version": "0.1.1",
+  "description": "A vNext ASPNET specific middleware for ImageDis. A simple image resizing server for ASP.NET.",
+  "authors": [ "Lupco Blazeski" ],
+  "tags": [ "vnext", "aspnet", "image", "resizing", "server", "asp", "mvc" ],
+  "projectUrl": "https://github.com/lupcob/imagedis",
+  "licenseUrl": "https://github.com/lupcob/imagedis/blob/master/LICENCE.md",
+
+  "dependencies": {
+    "ImageDis": "0.1.1",
+    "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta5",
+    "Newtonsoft.Json": "7.0.1"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}
