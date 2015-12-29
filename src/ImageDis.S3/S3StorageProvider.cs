@@ -45,7 +45,7 @@ namespace ImageDis.S3
             }
         }
 
-        public async Task SaveFile(string key, string contentType, Stream stream)
+        public async Task SaveFile(string key, string contentType, Stream stream, ImageDisOptions options)
         {
             using (var client = new AmazonS3Client(_awsAccessKeyId, _awsSecretAccessKey, _region))
             {
@@ -65,7 +65,7 @@ namespace ImageDis.S3
             return Task.FromResult(_imageRedirect + key);
         }
 
-        public async Task<ImageDisFile> GetFile(string key)
+        public async Task<ImageDisFile> GetFile(string key, ImageDisOptions options)
         {
             using (var client = new AmazonS3Client(_awsAccessKeyId, _awsSecretAccessKey, _region))
             {

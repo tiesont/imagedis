@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ImageDis.AspNet
+namespace ImageDis.Mvc6
 {
     class ImageDisMiddleware
     {
@@ -55,7 +55,7 @@ namespace ImageDis.AspNet
             var file = context.Request.Form.Files.First();
 
             // check acceptable mime types
-            if (_options.AllowedContentTypes != null && !_options.AllowedContentTypes.Contains(file.ContentType, StringComparer.OrdinalIgnoreCase))
+            if (!IsAllowedImageType(file.ContentType))
             {
                 context.Response.UnsupportedMediaType();
                 return;
@@ -68,7 +68,7 @@ namespace ImageDis.AspNet
 
             // save file
             var stream = file.OpenReadStream();
-            await _options.StorageProvider.SaveFile(key, file.ContentType, stream);
+            await _options.StorageProvider.SaveFile(key, file.ContentType, stream, _options);
 
             // respond with image id
             await context.Response.Json(new
@@ -107,10 +107,23 @@ namespace ImageDis.AspNet
             }
 
             // apply transformations, save to storage and redirect user
-            var original = await _options.StorageProvider.GetFile(key);
+            var original = await _options.StorageProvider.GetFile(key, _options);
             var newFile = await _options.ImageTransformProvider.TransformImage(original.Stream, param);
-            await _options.StorageProvider.SaveFile(newKey, original.ContentType, newFile);
+            await _options.StorageProvider.SaveFile(newKey, original.ContentType, newFile, _options);
             context.Response.Redirect(await _options.StorageProvider.GetRedirectPath(newKey));
+        }
+
+        private bool IsAllowedImageType(string contentType)
+        {
+            if (_options.AllowedImageTypes != null)
+            {
+                foreach (var allowedImageType in _options.AllowedImageTypes)
+                {
+                    if (contentType.Equals(allowedImageType.ContentType, StringComparison.OrdinalIgnoreCase))
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Builder;
 
-namespace ImageDis.AspNet
+namespace ImageDis.Mvc6
 {
     public static class ImageDisBuilder
     {

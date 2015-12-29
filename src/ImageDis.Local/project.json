@@ -1,15 +1,14 @@
-{
+﻿{
   "version": "0.1.2",
-  "description": "A StorageProvider for ImageDis based on AWS S3. ImageDis is a simple image resizing server for ASP.NET.",
+  "description": "A StorageProvider for ImageDis based on local storage. ImageDis is a simple image resizing server for ASP.NET.",
   "authors": [ "Lupco Blazeski" ],
-  "tags": [ "s3", "aws", "image", "resizing", "server", "asp", "mvc" ],
+  "tags": [ "local", "image", "resizing", "server", "asp", "mvc" ],
   "projectUrl": "https://github.com/lupcob/imagedis",
   "licenseUrl": "https://github.com/lupcob/imagedis/blob/master/LICENCE.md",
   "frameworks": {
     "dnx451": { }
   },
   "dependencies": {
-    "AWSSDK": "2.3.53",
     "ImageDis": "0.1.2"
   }
 }

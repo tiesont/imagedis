@@ -9,7 +9,7 @@ namespace ImageDis
             IStorageProvider storageProvider,
             IImageTransformProvider imageTransformProvider, 
             string path = null,
-            string[] allowedContentTypes = null,
+            ImageType[] allowedImageTypes = null,
             IKeyGenerator keyGenerator = null)
         {
             if (storageProvider == null)
@@ -24,16 +24,16 @@ namespace ImageDis
 
             Path = string.IsNullOrWhiteSpace(path) ? "/imagedis" : path;
 
-            AllowedContentTypes = allowedContentTypes == null || !allowedContentTypes.Any() 
-                ? new[] { "image/jpeg", "image/png" } 
-                : allowedContentTypes;
+            AllowedImageTypes = allowedImageTypes == null || !allowedImageTypes.Any() 
+                ? new[] { ImageTypes.Jpeg, ImageTypes.Png } 
+                : allowedImageTypes;
 
             KeyGenerator = keyGenerator ?? new RandomKeyGenerator();
         }
 
         public string Path { get; set; }
 
-        public string[] AllowedContentTypes { get; set; }
+        public ImageType[] AllowedImageTypes { get; set; }
 
         public IKeyGenerator KeyGenerator { get; set; }
 

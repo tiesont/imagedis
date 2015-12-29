@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Http;
 using System.Linq;
 
-namespace ImageDis.AspNet
+namespace ImageDis.Mvc6
 {
     public static class ImageDisParametersExtensions
     {

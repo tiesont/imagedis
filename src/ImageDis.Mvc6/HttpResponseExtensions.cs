@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ImageDis.AspNet
+namespace ImageDis.Mvc6
 {
     public static class HttpResponseExtensions
     {

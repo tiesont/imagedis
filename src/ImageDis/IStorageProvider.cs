@@ -6,11 +6,11 @@ namespace ImageDis
     public interface IStorageProvider
     {
         Task<bool> CheckIfKeyExists(string key);
-
-        Task SaveFile(string key, string contentType, Stream stream);
-
+        
         Task<string> GetRedirectPath(string key);
 
-        Task<ImageDisFile> GetFile(string key);
+        Task SaveFile(string key, string contentType, Stream stream, ImageDisOptions options);
+
+        Task<ImageDisFile> GetFile(string key, ImageDisOptions options);
     }
 }
