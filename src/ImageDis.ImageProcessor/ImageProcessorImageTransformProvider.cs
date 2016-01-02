@@ -9,6 +9,21 @@ namespace ImageDis.ImageProcessor
 {
     public class ImageProcessorImageTransformProvider : IImageTransformProvider
     {
+        public Task<ImageSize> GetSize(Stream image)
+        {
+            using (var imageFactory = new ImageFactory(preserveExifData: false))
+            {
+                var chain = imageFactory.Load(image);
+                return Task.FromResult(
+                    new ImageSize
+                    {
+                        Width = chain.Image.Size.Width,
+                        Height = chain.Image.Size.Height
+                    }
+                );
+            }
+        }
+
         public Task<Stream> TransformImage(Stream image, ImageDisParameters param)
         {
             var newImage = new MemoryStream();

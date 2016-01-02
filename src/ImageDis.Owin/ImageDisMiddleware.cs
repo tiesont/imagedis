@@ -70,13 +70,16 @@ namespace ImageDis.Owin
 
             // save file
             var stream = file.OpenReadStream();
+            var size = await _options.ImageTransformProvider.GetSize(stream);
             await _options.StorageProvider.SaveFile(key, file.ContentType, stream, _options);
 
             // respond with image id
             await context.Response.Json(new
             {
                 key = key,
-                url = context.Request.Scheme + "://" + context.Request.Host + _options.Path + "/" + key
+                url = context.Request.Scheme + "://" + context.Request.Host + _options.Path + "/" + key,
+                width = size.Width,
+                height = size.Height
             });
         }
 

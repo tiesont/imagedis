@@ -1,5 +1,5 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An OWIN specific middleware for ImageDis. A simple image resizing server for ASP.NET.",
   "authors": [ "Lupco Blazeski" ],
   "tags": [ "owin", "image", "resizing", "server", "asp", "mvc" ],
@@ -9,7 +9,7 @@
     "dnx451": { }
   },
   "dependencies": {
-    "ImageDis": "0.1.2",
+    "ImageDis": "0.1.3",
     "Microsoft.Owin": "3.0.1",
     "Newtonsoft.Json": "7.0.1"
   }
