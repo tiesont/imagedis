@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F0B4EE3-E156-4C67-BAA7-DBCCAAA5377D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ImageDis", "src\ImageDis\ImageDis.xproj", "{1CF0069F-80AB-4C25-A466-7FCDE4349864}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ImageDis.AspNetCore", "src\ImageDis.AspNetCore\ImageDis.AspNetCore.xproj", "{7972DD9B-D63A-4969-BAEC-DE9309F11304}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ImageDis.S3", "src\ImageDis.S3\ImageDis.S3.xproj", "{7F44EB25-CF35-4658-8811-BFE33281C237}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ImageDis.Local", "src\ImageDis.Local\ImageDis.Local.xproj", "{39527816-4A10-42ED-B9FA-66E5BE354202}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D22E688-9E60-43E5-9AA9-A8C954EE27DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF0069F-80AB-4C25-A466-7FCDE4349864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF0069F-80AB-4C25-A466-7FCDE4349864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF0069F-80AB-4C25-A466-7FCDE4349864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF0069F-80AB-4C25-A466-7FCDE4349864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7972DD9B-D63A-4969-BAEC-DE9309F11304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7972DD9B-D63A-4969-BAEC-DE9309F11304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7972DD9B-D63A-4969-BAEC-DE9309F11304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7972DD9B-D63A-4969-BAEC-DE9309F11304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F44EB25-CF35-4658-8811-BFE33281C237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F44EB25-CF35-4658-8811-BFE33281C237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F44EB25-CF35-4658-8811-BFE33281C237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F44EB25-CF35-4658-8811-BFE33281C237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39527816-4A10-42ED-B9FA-66E5BE354202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39527816-4A10-42ED-B9FA-66E5BE354202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39527816-4A10-42ED-B9FA-66E5BE354202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39527816-4A10-42ED-B9FA-66E5BE354202}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CF0069F-80AB-4C25-A466-7FCDE4349864} = {2D22E688-9E60-43E5-9AA9-A8C954EE27DD}
+		{7972DD9B-D63A-4969-BAEC-DE9309F11304} = {2D22E688-9E60-43E5-9AA9-A8C954EE27DD}
+		{7F44EB25-CF35-4658-8811-BFE33281C237} = {2D22E688-9E60-43E5-9AA9-A8C954EE27DD}
+		{39527816-4A10-42ED-B9FA-66E5BE354202} = {2D22E688-9E60-43E5-9AA9-A8C954EE27DD}
+	EndGlobalSection
+EndGlobal

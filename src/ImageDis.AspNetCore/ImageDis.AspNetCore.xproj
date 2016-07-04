@@ -7,8 +7,8 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>39527816-4a10-42ed-b9fa-66e5be354202</ProjectGuid>
-    <RootNamespace>ImageDis.Local</RootNamespace>
+    <ProjectGuid>7972dd9b-d63a-4969-baec-de9309f11304</ProjectGuid>
+    <RootNamespace>ImageDis.AspNetCore</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
