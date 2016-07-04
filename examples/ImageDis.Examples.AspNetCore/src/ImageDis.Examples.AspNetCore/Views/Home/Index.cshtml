@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <fieldset>
+            <legend>Upload image</legend>
+            <form>
+                <div class="form-group">
+                    <input type="file" name="image" accept="image/*" required />
+                </div>
+                <div class="form-group">
+                    <input type="submit" />
+                </div>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Response</legend>
+            <div id="response"></div>
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset>
+            <legend>Uploaded image</legend>
+            <div class="form-group">
+                <img id="img-original" style="max-width: 100%;" />
+                <p>Original</p>
+            </div>
+            <div class="form-group">
+                <img id="img-50w" style="max-width: 100%;" />
+                <p>Width: 50px</p>
+            </div>
+            <div class="form-group">
+                <img id="img-50h" style="max-width: 100%;" />
+                <p>Height: 50px</p>
+            </div>
+        </fieldset>
+        
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            $('form').submit(function (e) {
+                e.preventDefault();
+
+                var input = $('input[type="file"]');
+                var image = input.prop('files')[0];
+
+                var formData = new FormData();
+                formData.append("image", image);
+
+                $.ajax({
+                    url: '/imagedis',
+                    type: 'post',
+                    contentType: false,
+                    data: formData,
+                    processData: false,
+                    success: function (res) {
+                        var json = JSON.stringify(res, null, 2)
+                            .replace(/(?:\r\n|\r|\n)/g, '<br />');
+
+                        $('#response').html(json);
+
+                        $('#img-original').attr('src', res.url);
+                        $('#img-50w').attr('src', res.url + '?w=50');
+                        $('#img-50h').attr('src', res.url + '?h=50');
+                    }
+                });
+            });
+        });
+    </script>
+}
