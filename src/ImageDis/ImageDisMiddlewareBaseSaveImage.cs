@@ -10,6 +10,10 @@ namespace ImageDis
         private bool IsImagePost(object context)
         {
             var request = GetRequest(context);
+            
+            if (!request.IsImageDis)
+                return false;
+
             return (request.Path.Equals("/") || request.Path.Equals(string.Empty))
                 && request.Method.Equals("POST", StringComparison.OrdinalIgnoreCase);
         }
@@ -17,7 +21,7 @@ namespace ImageDis
         private async Task SaveImage(object context)
         {
             var request = GetRequest(context);
-            var files = GetFiles(context);
+            var files = await GetFiles(context);
 
             if (!files.Any())
             {

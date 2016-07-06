@@ -11,6 +11,10 @@ namespace ImageDis
         private bool IsImageGet(object context)
         {
             var request = GetRequest(context);
+
+            if (!request.IsImageDis)
+                return false;
+
             return request.Method.Equals("GET", StringComparison.OrdinalIgnoreCase)
                 && _getImageRegex.IsMatch(request.Path.ToString());
         }

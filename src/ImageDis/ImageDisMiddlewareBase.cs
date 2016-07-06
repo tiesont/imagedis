@@ -7,7 +7,7 @@ namespace ImageDis
 {
     public abstract partial class ImageDisMiddlewareBase
     {
-        private readonly ImageDisOptions _options;
+        protected readonly ImageDisOptions _options;
         private readonly Regex _getImageRegex;
 
         public ImageDisMiddlewareBase(ImageDisOptions options, string pathPrefix)
@@ -38,7 +38,7 @@ namespace ImageDis
         
         protected abstract ImageDisRequest GetRequest(object context);
 
-        protected abstract IEnumerable<ImageDisFile> GetFiles(object context);
+        protected abstract Task<IEnumerable<ImageDisFile>> GetFiles(object context);
 
         protected abstract void RespondWithStatusCode(object context, HttpStatusCode statusCode);
 
